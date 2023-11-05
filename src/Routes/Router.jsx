@@ -4,6 +4,7 @@ import Home from "../Layouts/Home/Home";
 import Login from "../Layouts/Login/Login";
 import Register from "../Layouts/Register/Register";
 import About from "../Layouts/About/About";
+import CreateAssignment from "../Layouts/CreateAssignment/CreateAssignment";
 
 const Router = createBrowserRouter([
     {
@@ -17,6 +18,10 @@ const Router = createBrowserRouter([
         {
           path: "/about",
           element: <About></About>
+        },
+        {
+          path: "/makeassignment",
+          element: <CreateAssignment></CreateAssignment>
         },
         {
           path: "/login",
