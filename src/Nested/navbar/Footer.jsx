@@ -6,10 +6,11 @@ const Footer = () => {
     return (
         <footer className="footer footer-center p-10 bg-zinc-800 text-white">
             <aside>
-                <img className="w-[100px] h-[100px]" src="https://i.ibb.co/wRhbYs6/logo-W-removebg-preview.png" alt="" />
-                <p className="font-bold">
-                    ACME Industries Ltd. <br />Providing reliable tech since 1992
-                </p>
+                <img className="w-[120px] h-[120px]" src="https://i.ibb.co/QrKMZpY/Study-Buddy-Hub-removebg-preview.png" alt="" />
+                <p className="font-semibold">
+                Study Buddy Hub Ltd.</p> <p>
+                    Together We Learn, Together We Grow</p>
+                
                 <p>Copyright © 2023 - All right reserved</p>
             </aside>
             <nav>
