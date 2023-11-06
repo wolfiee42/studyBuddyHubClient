@@ -5,7 +5,12 @@ import PropTypes from 'prop-types';
 
 
 const PrivateRoute = ({ children }) => {
-    const { user } = useAuth();
+    const { user, loading } = useAuth();
+    if (loading) {
+        return <div className="flex text-center items-center w-full min-h-[600px]">
+            <span className="loading loading-spinner loading-lg min-w-max mx-auto"></span>
+        </div>
+    }
     if (user?.email) {
         return children
     }

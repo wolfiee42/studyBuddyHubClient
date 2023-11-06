@@ -7,28 +7,34 @@ import auth from "../firebase/firebase.confiq";
 export const AuthContxt = createContext()
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState()
+    const [user, setUser] = useState();
+    const [loading, setLoading] = useState(true);
     const provider = new GoogleAuthProvider();
 
 
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     const logIn = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password)
+        setLoading(true);
+        return signInWithEmailAndPassword(auth, email, password);
     }
 
     const loginWithGoogle = () => {
-        return signInWithPopup(auth, provider)
+        setLoading(true);
+        return signInWithPopup(auth, provider);
     }
 
-    const logOut = ()=>{
-        return signOut(auth)
+    const logOut = () => {
+        setLoading(true);
+        return signOut(auth);
     }
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
+            setLoading(false);
             console.log('spying', currentUser);
         })
         return () => {
@@ -37,7 +43,7 @@ const AuthProvider = ({ children }) => {
     }, [])
 
 
-    const authInfo = { createUser, logIn, loginWithGoogle, user, logOut }
+    const authInfo = { createUser, logIn, loginWithGoogle, user, loading, logOut }
     return (
         <AuthContxt.Provider value={authInfo}>
             {children}
