@@ -7,8 +7,8 @@ const Banner = () => {
         <Swiper className='max-w-7xl mx-auto text-white'
         spaceBetween={50}
         slidesPerView={1}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log('slide change')}
+        // onSwiper={(swiper) => console.log(swiper)}
 
         centeredSlides={true}
         autoplay={{

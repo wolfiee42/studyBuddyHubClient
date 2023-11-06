@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
+
+    const { createUser } = useAuth();
 
     const handleRegisterForm = event => {
         event.preventDefault();
@@ -11,7 +14,11 @@ const Register = () => {
         const password = form.password.value;
 
         const user = { name, image, email, password };
-        console.log(user);
+
+        createUser(email, password)
+            .then(result => console.log(result.user))
+            .catch(error => console.log(error.message))
+
     }
     return (
         <div className="hero min-h-screen bg-base-200">
