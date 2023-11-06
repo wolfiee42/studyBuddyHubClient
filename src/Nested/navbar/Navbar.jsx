@@ -1,6 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
-
+import useAuth from "../../hooks/useAuth"
 const Navbar = () => {
+    const { user, logOut } = useAuth();
+    console.log(user);
     const navbarMenus = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/about'}>About</NavLink></li>
@@ -8,6 +10,15 @@ const Navbar = () => {
         <li><NavLink to={'/login'}>Login</NavLink></li>
         <li><NavLink to={'/register'}>Register</NavLink></li>
     </>
+
+    const handleLogoutbtn = (e) => {
+        e.preventDefault();
+        logOut()
+            .then(() => console.log("logged out successfully"))
+            .catch(error => console.log(error.message))
+    }
+
+
     return (
 
         <div className="navbar max-w-7xl mx-auto ">
@@ -28,7 +39,19 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                {user ? <div className="flex justify-center items-center gap-10">
+                    <div className="avatar">
+                        <div className="w-16 rounded-full">
+                            <img src="https://i.ibb.co/z7hTcB7/pic.jpg" />
+                        </div>
+                    </div>
+                    <button onClick={handleLogoutbtn} className="btn bg-yellow-400 hover:bg-yellow-500 hover:text-white">Sign Out</button>
+                </div> :
+                    <div className="avatar">
+                        <div className="w-16 rounded-full">
+                            <img src="https://i.ibb.co/MBdTkhw/Friendly-Ones-Avatar.png" />
+                        </div>
+                    </div>}
             </div>
         </div>
     );

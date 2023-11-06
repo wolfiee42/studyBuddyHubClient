@@ -5,34 +5,35 @@ import Login from "../Layouts/Login/Login";
 import Register from "../Layouts/Register/Register";
 import About from "../Layouts/About/About";
 import CreateAssignment from "../Layouts/CreateAssignment/CreateAssignment";
+import PrivateRoute from "./PrivateRoute";
 
 const Router = createBrowserRouter([
-    {
-      path: "/",
-      element: <App></App>,
-      children: [
-        {
-          path: "/",
-          element: <Home></Home>,
-        },
-        {
-          path: "/about",
-          element: <About></About>
-        },
-        {
-          path: "/makeassignment",
-          element: <CreateAssignment></CreateAssignment>
-        },
-        {
-          path: "/login",
-          element: <Login></Login>
-        },
-        {
-          path: "/register",
-          element: <Register></Register>
-        },
-      ],
-    },
-  ]);
+  {
+    path: "/",
+    element: <App></App>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/about",
+        element: <About></About>
+      },
+      {
+        path: "/makeassignment",
+        element: <PrivateRoute><CreateAssignment></CreateAssignment></PrivateRoute>
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/register",
+        element: <Register></Register>
+      },
+    ],
+  },
+]);
 
 export default Router;

@@ -60,7 +60,7 @@ const Login = () => {
                             <div className="divider mb-20">OR</div>
                         </form>
 
-                        <button onClick={handleGoogleLogin} className="btn absolute bottom-10 w-[320px] left-8 bg-yellow-400 hover:bg-yellow-500 hover:text-white"><FcGoogle className="text-xl hover:text-2xl"></FcGoogle><h2>Continue With Google</h2></button>
+                        <button onClick={handleGoogleLogin  } className="btn absolute bottom-10 w-[320px] left-8 bg-yellow-400 hover:bg-yellow-500 hover:text-white"><FcGoogle className="text-xl hover:text-2xl"></FcGoogle><h2>Continue With Google</h2></button>
                     </div>
                 </div>
             </div>
