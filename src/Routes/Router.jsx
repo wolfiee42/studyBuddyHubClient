@@ -3,7 +3,6 @@ import App from "../App";
 import Home from "../Layouts/Home/Home";
 import Login from "../Layouts/Login/Login";
 import Register from "../Layouts/Register/Register";
-import About from "../Layouts/About/About";
 import CreateAssignment from "../Layouts/CreateAssignment/CreateAssignment";
 import PrivateRoute from "./PrivateRoute";
 import Assignments from "../Layouts/Assignments/Assignments";
@@ -11,6 +10,7 @@ import ViewDetails from "../Layouts/View Details/ViewDetails";
 import Submit from "../Layouts/View Details/Submit";
 import Update from "../Layouts/Update/Update";
 import MySubmit from "../Layouts/mysubmit/MySubmit";
+import Allsubmits from "../Layouts/AllSubmits/Allsubmits";
 
 const Router = createBrowserRouter([
   {
@@ -22,16 +22,16 @@ const Router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/about",
-        element: <About></About>
-      },
-      {
         path: "/assignments",
         element: <Assignments></Assignments>
       },
       {
         path: "/makeassignment",
         element: <PrivateRoute><CreateAssignment></CreateAssignment></PrivateRoute>
+      },
+      {
+        path: "/allsubmits",
+        element: <PrivateRoute><Allsubmits></Allsubmits></PrivateRoute>
       },
       {
         path: "/assignments/:id",

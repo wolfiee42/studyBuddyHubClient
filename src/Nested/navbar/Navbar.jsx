@@ -4,16 +4,20 @@ const Navbar = () => {
     const { user, logOut } = useAuth();
     const navbarMenus = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
-        <li><NavLink to={'/about'}>About</NavLink></li>
         <li><NavLink to={'/assignments'}>Assignments</NavLink></li>
         {
-            user &&<> 
-            <li><NavLink to={'/makeassignment'}>Create Assignment</NavLink></li>
-            <li><NavLink to={'/mysubmits'}>My Submittion</NavLink></li>
+            user && <>
+                <li><NavLink to={'/makeassignment'}>Create Assignment</NavLink></li>
+                <li><NavLink to={'/mysubmits'}>My Submittion</NavLink></li>
+                <li><NavLink to={'/allsubmits'}>All Submits</NavLink></li>
             </>
         }
-        <li><NavLink to={'/login'}>Login</NavLink></li>
-        <li><NavLink to={'/register'}>Register</NavLink></li>
+        {
+            !user && <>
+                <li><NavLink to={'/login'}>Login</NavLink></li>
+                <li><NavLink to={'/register'}>Register</NavLink></li>
+            </>
+        }
     </>
 
     const handleLogoutbtn = (e) => {
