@@ -10,6 +10,7 @@ import Assignments from "../Layouts/Assignments/Assignments";
 import ViewDetails from "../Layouts/View Details/ViewDetails";
 import Submit from "../Layouts/View Details/Submit";
 import Update from "../Layouts/Update/Update";
+import MySubmit from "../Layouts/mysubmit/MySubmit";
 
 const Router = createBrowserRouter([
   {
@@ -25,12 +26,12 @@ const Router = createBrowserRouter([
         element: <About></About>
       },
       {
-        path: "/makeassignment",
-        element: <PrivateRoute><CreateAssignment></CreateAssignment></PrivateRoute>
-      },
-      {
         path: "/assignments",
         element: <Assignments></Assignments>
+      },
+      {
+        path: "/makeassignment",
+        element: <PrivateRoute><CreateAssignment></CreateAssignment></PrivateRoute>
       },
       {
         path: "/assignments/:id",
@@ -44,8 +45,12 @@ const Router = createBrowserRouter([
       },
       {
         path: "/submit/:id",
-        element: <Submit></Submit>,
+        element: <PrivateRoute><Submit></Submit></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+      },
+      {
+        path: "/mysubmits",
+        element: <PrivateRoute><MySubmit></MySubmit></PrivateRoute>
       },
       {
         path: "/login",

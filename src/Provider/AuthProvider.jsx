@@ -4,7 +4,7 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,
 import auth from "../firebase/firebase.confiq";
 
 
-export const AuthContxt = createContext()
+export const AuthContext = createContext()
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
@@ -52,9 +52,9 @@ const AuthProvider = ({ children }) => {
 
     const authInfo = { createUser, logIn, loginWithGoogle, user, loading, updateUser, logOut }
     return (
-        <AuthContxt.Provider value={authInfo}>
+        <AuthContext.Provider value={authInfo}>
             {children}
-        </AuthContxt.Provider>
+        </AuthContext.Provider>
     );
 };
 
