@@ -3,7 +3,7 @@ import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
 
-    const { createUser } = useAuth();
+    const { createUser, updateUser } = useAuth();
 
     const handleRegisterForm = event => {
         event.preventDefault();
@@ -13,10 +13,13 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        const user = { name, image, email, password };
+        // const user = { name, image, email, password };
 
         createUser(email, password)
-            .then(result => console.log(result.user))
+            .then(result => {
+                updateUser(name, image);
+                console.log(result.user);
+            })
             .catch(error => console.log(error.message))
 
     }

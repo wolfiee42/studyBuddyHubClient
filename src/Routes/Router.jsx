@@ -7,6 +7,9 @@ import About from "../Layouts/About/About";
 import CreateAssignment from "../Layouts/CreateAssignment/CreateAssignment";
 import PrivateRoute from "./PrivateRoute";
 import Assignments from "../Layouts/Assignments/Assignments";
+import ViewDetails from "../Layouts/View Details/ViewDetails";
+import Submit from "../Layouts/View Details/Submit";
+import Update from "../Layouts/Update/Update";
 
 const Router = createBrowserRouter([
   {
@@ -28,6 +31,21 @@ const Router = createBrowserRouter([
       {
         path: "/assignments",
         element: <Assignments></Assignments>
+      },
+      {
+        path: "/assignments/:id",
+        element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+      },
+      {
+        path: "/assignments/update/:id",
+        element: <PrivateRoute><Update></Update></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+      },
+      {
+        path: "/submit/:id",
+        element: <Submit></Submit>,
+        loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
       },
       {
         path: "/login",

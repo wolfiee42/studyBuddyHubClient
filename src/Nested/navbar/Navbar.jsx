@@ -45,7 +45,7 @@ const Navbar = () => {
                 {user ? <div className="flex justify-center items-center gap-10">
                     <div className="avatar">
                         <div className="w-16 rounded-full">
-                            <img src="https://i.ibb.co/z7hTcB7/pic.jpg" />
+                            <img src={user?.photoURL} title={user.displayName} />
                         </div>
                     </div>
                     <button onClick={handleLogoutbtn} className="btn bg-yellow-400 hover:bg-yellow-500 hover:text-white">Sign Out</button>
