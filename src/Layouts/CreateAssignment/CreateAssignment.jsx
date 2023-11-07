@@ -2,12 +2,16 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axiosSecure from "../../hooks/useAxiosSecure";
-
+import useAuth from "../../hooks/useAuth"
 
 const CreateAssignment = () => {
     const [startDate, setStartDate] = useState(new Date());
     const [marks, setmarks] = useState("");
     const [diffLevel, setDiffLevel] = useState("");
+
+    const {user} = useAuth();
+    const userr = user?.email
+
 
     const handleSelectChange = e => {
         e.preventDefault();
@@ -29,7 +33,7 @@ const CreateAssignment = () => {
         const image = form.image.value;
         const desc = form.desc.value;
 
-        const createdAssignment = { title, desc, marks, image, diffLevel, startDate, }
+        const createdAssignment = { title, desc, marks, image, diffLevel, startDate, userr}
         axiosSecure.post('/assignments', createdAssignment)
             .then(res => console.log(res))
             .catch(error => console.log(error.message))
