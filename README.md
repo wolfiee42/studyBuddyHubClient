@@ -1,8 +1,9 @@
-# React + Vite
+# Study Buddy Hub
+https://studybuddyhub-1ed5e.web.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- this website has both Registration & Login feature.
+- In registration process, website insures user has a powerful password, and for that has a strong password feature.
+- without authentication one can not get access to the private routes.
+- after authentication, user can choose cars and even can purchase it.
+- clicking the toggle button you can change theme of the website
