@@ -64,14 +64,14 @@ const CreateAssignment = () => {
                             <label className="label">
                                 <span className="label-text">Title</span>
                             </label>
-                            <input type="text" name="title" placeholder="Assignment Title" className="input input-bordered w-full" />
+                            <input required type="text" name="title" placeholder="Assignment Title" className="input input-bordered w-full" />
 
                         </div>
                         <div className="form-control w-1/2">
                             <label className="label">
                                 <span className="label-text">Thumbnail</span>
                             </label>
-                            <input type="text" name="image" placeholder="Thumbnail URL" className="input input-bordered w-full" />
+                            <input required type="text" name="image" placeholder="Thumbnail URL" className="input input-bordered w-full" />
 
                         </div>
                     </div>
@@ -80,14 +80,14 @@ const CreateAssignment = () => {
                             <label className="label">
                                 <span className="label-text">Due Date</span>
                             </label>
-                            <DatePicker placeholder="Type here" className="input input-bordered w-full" selected={startDate} onChange={(date) => setStartDate(date)} />
+                            <DatePicker required placeholder="Type here" className="input input-bordered w-full" selected={startDate} onChange={(date) => setStartDate(date)} />
 
                         </div>
                         <div className="form-control w-1/2">
                             <label className="label">
                                 <span className="label-text">Difficulty Level</span>
                             </label>
-                            <select className="select select-bordered w-full" onChange={handledifficulty}>
+                            <select required className="select select-bordered w-full" onChange={handledifficulty}>
                                 <option disabled selected>Pick one</option>
                                 <option value='Easy'>Easy</option>
                                 <option value='Medium'>Medium</option>
@@ -100,7 +100,7 @@ const CreateAssignment = () => {
                             <label className="label">
                                 <span className="label-text">Marks</span>
                             </label>
-                            <select className="select select-bordered w-full" onChange={handleSelectChange} >
+                            <select required className="select select-bordered w-full" onChange={handleSelectChange} >
                                 <option disabled selected>Pick one</option>
                                 <option value="10">10</option>
                                 <option value="20">20</option>
@@ -111,7 +111,7 @@ const CreateAssignment = () => {
                             <label className="label">
                                 <span className="label-text">Description</span>
                             </label>
-                            <textarea name="desc" className="textarea textarea-bordered w-full" placeholder="Assignment Description"></textarea>
+                            <textarea required name="desc" className="textarea textarea-bordered w-full" placeholder="Assignment Description"></textarea>
                         </div>
                     </div>
                     <button className="btn w-full bg-yellow-400 hover:bg-yellow-500 hover:text-white">Make Assignment</button>

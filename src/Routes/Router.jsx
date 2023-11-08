@@ -24,7 +24,7 @@ const Router = createBrowserRouter([
       {
         path: "/assignments",
         element: <Assignments></Assignments>,
-        loader: () => fetch("http://localhost:5000/assignmentcount")
+        loader: () => fetch("https://study-buddy-hub-server-side.vercel.app/assignmentcount")
       },
       {
         path: "/makeassignment",
@@ -37,17 +37,17 @@ const Router = createBrowserRouter([
       {
         path: "/assignments/:id",
         element: <PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+        loader: ({ params }) => fetch(`https://study-buddy-hub-server-side.vercel.app/assignment/${params.id}`)
       },
       {
         path: "/assignments/update/:id",
         element: <PrivateRoute><Update></Update></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+        loader: ({ params }) => fetch(`https://study-buddy-hub-server-side.vercel.app/assignment/${params.id}`)
       },
       {
         path: "/submit/:id",
         element: <PrivateRoute><Submit></Submit></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/assignment/${params.id}`)
+        loader: ({ params }) => fetch(`https://study-buddy-hub-server-side.vercel.app/assignment/${params.id}`)
       },
       {
         path: "/mysubmits",

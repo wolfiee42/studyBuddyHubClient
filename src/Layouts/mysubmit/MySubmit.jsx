@@ -10,7 +10,7 @@ const MySubmit = () => {
     const [submittion, setSubmissition] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/submittedAssign?email=${user?.email}`)
+        fetch(`https://study-buddy-hub-server-side.vercel.app/submittedAssign?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setSubmissition(data);

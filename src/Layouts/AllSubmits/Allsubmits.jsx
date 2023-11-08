@@ -4,7 +4,7 @@ import Allsubmitt from "./Allsubmitt";
 const Allsubmits = () => {
     const [submitted, setSubmitted] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/submittedAssign')
+        fetch('https://study-buddy-hub-server-side.vercel.app/submittedAssign')
             .then(res => res.json())
             .then(data => {
                 setSubmitted(data)
@@ -24,7 +24,7 @@ const Allsubmits = () => {
         //         }
         //     })
 
-        fetch(`http://localhost:5000/submittedAssign/${_id}`, {
+        fetch(`https://study-buddy-hub-server-side.vercel.app/submittedAssign/${_id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"
