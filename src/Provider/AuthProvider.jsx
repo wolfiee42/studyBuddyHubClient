@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import auth from "../firebase/firebase.confiq";
+import axiosSecure from "../hooks/useAxiosSecure";
 
 
 export const AuthContext = createContext()
@@ -43,6 +44,18 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser);
             setLoading(false);
             console.log('spying', currentUser);
+
+            const userEmail = currentUser?.email || user?.email;
+            const loggedUser = {email: userEmail};
+            if(currentUser){
+                axiosSecure.post('/jwt', loggedUser)
+                .then(res=>console.log(res.data))
+            } else {
+                axiosSecure.post('/logout', loggedUser)
+                .then(res=>console.log(res.data))
+            }
+
+
         })
         return () => {
             unsubscribe()

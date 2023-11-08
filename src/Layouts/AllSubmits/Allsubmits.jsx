@@ -47,7 +47,6 @@ const Allsubmits = () => {
         <div className="bg-base-200">
             <div className="max-w-7xl mx-auto space-y-10 py-20">
                 <h2 className="text-4xl font-serif font-bold">All <span className="text-yellow-400">Submits</span></h2>
-                {submitted.length}
                 {
                     submitted.map((submitt, ind) => <Allsubmitt handlePending={handlePending} key={ind} submitt={submitt}></Allsubmitt>)
                 }

@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { FcGoogle } from "react-icons/fc";
+import axiosSecure from "../../hooks/useAxiosSecure";
 
 
 const Login = () => {
@@ -14,9 +15,17 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        const user = { email, password };
+
         logIn(email, password)
-            .then(result => console.log(result.user))
+            .then(() => {
+                const user = { email };
+                axiosSecure.post('/jwt', user)
+                    .then(res => {
+                        if (res.data.success) {
+                            // Navigate(location?.state ? location?.state : "/");
+                        }
+                    })
+            })
             .catch(error => console.log(error.message))
     }
 
@@ -60,7 +69,7 @@ const Login = () => {
                             <div className="divider mb-20">OR</div>
                         </form>
 
-                        <button onClick={handleGoogleLogin  } className="btn absolute bottom-10 w-[320px] left-8 bg-yellow-400 hover:bg-yellow-500 hover:text-white"><FcGoogle className="text-xl hover:text-2xl"></FcGoogle><h2>Continue With Google</h2></button>
+                        <button onClick={handleGoogleLogin} className="btn absolute bottom-10 w-[320px] left-8 bg-yellow-400 hover:bg-yellow-500 hover:text-white"><FcGoogle className="text-xl hover:text-2xl"></FcGoogle><h2>Continue With Google</h2></button>
                     </div>
                 </div>
             </div>

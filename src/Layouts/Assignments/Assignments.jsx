@@ -80,7 +80,7 @@ const Assignments = () => {
                             {
                                 pages.map(page => <button onClick={() => setCurrentPage(page)} className="btn mr-5 my-10 btn-warning" key={page}>{page + 1}</button>)
                             }
-                            <button className="btn mr-5 my-10 btn-warning" onClick={handleNextBtn}>Next</button>
+                            <button  className="btn mr-5 my-10 btn-warning" onClick={handleNextBtn}>Next</button>
                         </div>
                         <select onChange={handleSelectBtn} value={itemPerPage}>
                             <option value="3">3</option>
