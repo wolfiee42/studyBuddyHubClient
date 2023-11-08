@@ -56,11 +56,11 @@ const CreateAssignment = () => {
 
     return (
         <div className="bg-base-200 py-10">
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-sm md:max-w-xl  lg:max-w-7xl mx-auto">
                 <form onSubmit={handleForm} className="space-y-10">
                     <h2 className="font-bold text-4xl my-10 font-serif">Create <span className="text-yellow-400">Assignment</span></h2>
-                    <div className="flex justify-center items-center gap-10">
-                        <div className="form-control w-1/2">
+                    <div className="flex justify-center items-center gap-4 md:gap-10">
+                        <div className="form-control  w-1/2">
                             <label className="label">
                                 <span className="label-text">Title</span>
                             </label>
@@ -75,7 +75,7 @@ const CreateAssignment = () => {
 
                         </div>
                     </div>
-                    <div className="flex justify-center items-center gap-10">
+                    <div className="flex justify-center items-center gap-4 md:gap-10">
                         <div className="form-control w-1/2">
                             <label className="label">
                                 <span className="label-text">Due Date</span>
@@ -95,7 +95,7 @@ const CreateAssignment = () => {
                             </select>
                         </div>
                     </div>
-                    <div className="flex justify-center items-start gap-10">
+                    <div className="flex justify-center items-start gap-4 md:gap-10">
                         <div className="form-control w-1/2">
                             <label className="label">
                                 <span className="label-text">Marks</span>

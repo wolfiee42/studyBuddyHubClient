@@ -5,8 +5,8 @@ const ViewDetails = () => {
     const { _id, description, difficultyLevel, dueDate, marks, thumbnailImageUrl, title } = useLoaderData();
 
     return (
-        <div className="max-w-7xl mx-auto">
-            <div className="flex justify-around gap-10 my-10">
+        <div className="max-w-sm md:max-w-xl lg:max-w-7xl mx-auto">
+            <div className="flex flex-col lg:flex-row justify-around gap-10 my-10">
                 <div>
                     <img className="rounded-xl w-[700px]" src={thumbnailImageUrl} alt="" />
                 </div>

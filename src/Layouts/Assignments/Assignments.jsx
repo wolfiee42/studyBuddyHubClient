@@ -69,7 +69,7 @@ const Assignments = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 my-16 gap-8">
                         {
                             assign.map(assignment => <Assignn assignment={assignment} key={assignment._id}></Assignn>)
                         }

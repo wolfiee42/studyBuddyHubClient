@@ -5,7 +5,7 @@ const Assignn = ({ assignment }) => {
 
 
     return (
-        <div className="card w-96 glass shadow-2xl">
+        <div className="card w-96 glass shadow-2xl mx-auto">
             <figure><img src={thumbnailImageUrl} className="w-[390px] h-[242px]" alt={title} /></figure>
             <div className="card-body">
                 <h2><span className="font-semibold text-xl">Title: </span><span className="text-xl">{title}</span></h2>
