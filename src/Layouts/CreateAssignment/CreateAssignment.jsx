@@ -3,13 +3,16 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth"
+import Swal from 'sweetalert2'
+
+
 
 const CreateAssignment = () => {
     const [startDate, setStartDate] = useState(new Date());
     const [marks, setmarks] = useState("");
     const [diffLevel, setDiffLevel] = useState("");
 
-    const {user} = useAuth();
+    const { user } = useAuth();
     const userr = user?.email
 
 
@@ -33,10 +36,18 @@ const CreateAssignment = () => {
         const image = form.image.value;
         const desc = form.desc.value;
 
-        const createdAssignment = { title, desc, marks, image, diffLevel, startDate, userr}
-        axiosSecure.post('/assignments', createdAssignment)
-            .then(res => console.log(res))
-            .catch(error => console.log(error.message))
+        const createdAssignment = { title, desc, marks, image, diffLevel, startDate, userr }
+        axiosSecure.post('/assignment', createdAssignment)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        title: "Assignment Created.",
+                        icon: "success"
+                    });
+                }
+            })
+
 
         form.reset()
 

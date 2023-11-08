@@ -1,18 +1,8 @@
-import axiosSecure from "../../hooks/useAxiosSecure"
 import PropTypes from 'prop-types';
 
-const Submittt = ({ submit }) => {
+const Submittt = ({ submit, handleDeletebtn }) => {
     const info = submit.data;
     const { thumbnailImageUrl, title, marks } = info;
-
-    const handleDeletebtn = _id => {
-        axiosSecure.delete(`/submittedAssign/${_id}`)
-            .then(result => {
-                if (result.data.acknowledged) {
-                     alert('deleted')
-                }
-            })
-    }
 
 
     return (
@@ -37,6 +27,7 @@ const Submittt = ({ submit }) => {
 
 Submittt.propTypes = {
     submit: PropTypes.node,
+    handleDeletebtn: PropTypes.func,
 }
 
 export default Submittt;

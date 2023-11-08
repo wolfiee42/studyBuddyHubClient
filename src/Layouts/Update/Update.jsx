@@ -2,8 +2,8 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axiosSecure from "../../hooks/useAxiosSecure";
-import { useLoaderData } from "react-router-dom";
-
+import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 
 
@@ -15,7 +15,7 @@ const Update = () => {
     const [diffLevel, setDiffLevel] = useState("");
     const data = useLoaderData();
     const { _id, title, thumbnailImageUrl, difficultyLevel, marks, description } = data
-
+    const navigate = useNavigate()
     const handleSelectChange = e => {
         e.preventDefault();
         const selectedvalue = e.target.value;
@@ -41,9 +41,13 @@ const Update = () => {
             .then(res => {
                 const success = res.data.acknowledged;
 
-                if(success){
-                    alert('congratz')
+                if (success) {
+                    Swal.fire({
+                        title: "Assignment Updated",
+                        icon: "success"
+                    });
                 }
+                navigate(-1);
             })
             .catch(error => console.log(error.message))
 

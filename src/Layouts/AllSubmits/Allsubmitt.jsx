@@ -1,7 +1,10 @@
+import PropTypes from 'prop-types';
 
 
-const Allsubmitt = ({ submitt }) => {
-    const {  title, thumbnailImageUrl, marks } = submitt.data;
+const Allsubmitt = ({ submitt, handlePending }) => {
+    const { _id, title, thumbnailImageUrl, marks, status } = submitt.data;
+
+
     return (
         <div className="card lg:card-side bg-base-100 shadow-xl">
             <figure><img src={thumbnailImageUrl} className="w-[424px]" alt="Album" /></figure>
@@ -16,10 +19,17 @@ const Allsubmitt = ({ submitt }) => {
                 </div>
 
                 <div className="flex justify-around">
-                    <button className="btn w-full bg-yellow-400 hover:bg-yellow-500 hover:text-white">mark</button>
+                    {   status === "confirm" ? <span className="font-bold">Checked</span> :
+                        <button onClick={() => handlePending(_id)} className="btn w-1/2 bg-red-500 hover:bg-red-400 hover:text-white">Confirm</button>}
                 </div>
             </div>
         </div>
     );
 }
+
+Allsubmitt.propTypes = {
+    submitt: PropTypes.object,
+    handlePending: PropTypes.func,
+}
+
 export default Allsubmitt;
